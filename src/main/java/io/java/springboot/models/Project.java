@@ -1,5 +1,7 @@
 package io.java.springboot.models;
 
+import java.util.List;
+
 public class Project {
 
 	private String name;
@@ -7,11 +9,11 @@ public class Project {
 	private String caption;
 	private String description;
 	private String pageUrl;
-	private String technologies;
-	private String imageUrl;
+	private List<Technology> technologies;
+	private List<Image> images;
 
 	public Project(String name, String subtitle, String caption, String description, String pageUrl,
-			String technologies, String imageUrl) {
+			List<Technology> technologies, List<Image> images) {
 		super();
 		this.name = name;
 		this.subtitle = subtitle;
@@ -19,7 +21,7 @@ public class Project {
 		this.description = description;
 		this.pageUrl = pageUrl;
 		this.technologies = technologies;
-		this.imageUrl = imageUrl;
+		this.images = images;
 	}
 
 	public String getName() {
@@ -62,19 +64,19 @@ public class Project {
 		this.pageUrl = pageUrl;
 	}
 
-	public String getTechnologies() {
+	public List<Technology> getTechnologies() {
 		return technologies;
 	}
 
-	public void setTechnologies(String technologies) {
+	public void setTechnologies(List<Technology> technologies) {
 		this.technologies = technologies;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	public List<Image> getImages() {
+		return images;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setImages(List<Image> images) {
+		this.images = images;
 	}
 }
