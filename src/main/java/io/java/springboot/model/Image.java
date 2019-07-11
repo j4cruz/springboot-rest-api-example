@@ -1,8 +1,12 @@
-package io.java.springboot.models;
+package io.java.springboot.model;
 
 public class Image {
 	private String caption;
 	private String url;
+
+	public Image() {
+		
+	}
 	
 	public Image(String caption, String url) {
 		this.caption = caption;

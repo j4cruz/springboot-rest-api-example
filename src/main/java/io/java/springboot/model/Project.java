@@ -1,9 +1,10 @@
-package io.java.springboot.models;
+package io.java.springboot.model;
 
 import java.util.List;
 
 public class Project {
 
+	private String id;
 	private String name;
 	private String subtitle;
 	private String caption;
@@ -12,9 +13,13 @@ public class Project {
 	private List<Technology> technologies;
 	private List<Image> images;
 
-	public Project(String name, String subtitle, String caption, String description, String pageUrl,
+	public Project() {
+	}
+
+	public Project(String id, String name, String subtitle, String caption, String description, String pageUrl,
 			List<Technology> technologies, List<Image> images) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.subtitle = subtitle;
 		this.caption = caption;
@@ -22,6 +27,14 @@ public class Project {
 		this.pageUrl = pageUrl;
 		this.technologies = technologies;
 		this.images = images;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getName() {
