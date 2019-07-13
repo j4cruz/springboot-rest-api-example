@@ -24,10 +24,6 @@ public class ImageService {
 		return imageRepository.findOne(id);
 	}
 
-	public void addImage(Image image) {
-		imageRepository.save(image);
-	}
-
 	public void updateImage(Image image) {
 		imageRepository.save(image);
 	}

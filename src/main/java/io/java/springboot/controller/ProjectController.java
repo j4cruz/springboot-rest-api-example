@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.java.springboot.model.Image;
 import io.java.springboot.model.Project;
 import io.java.springboot.service.ProjectService;
 
@@ -31,6 +32,14 @@ public class ProjectController {
 	@RequestMapping(method=RequestMethod.POST, value="/projects")
 	public void addProject(@RequestBody Project project) {
 		projectService.addProject(project);
+	}
+	
+	@RequestMapping(method=RequestMethod.POST, value="/projects/{projectId}/images")
+	public void addImage(@RequestBody Image image, @PathVariable String projectId) {
+		Project project = projectService.getProject(projectId);
+		Image imageToSave = new Image(null, image.getCaption(), image.getUrl(), project); 
+		project.addImage(imageToSave);
+		projectService.updateProject(project);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, value="/projects/{id}")

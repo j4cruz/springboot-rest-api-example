@@ -33,14 +33,6 @@ public class ImageController {
 		return imageService.getImage(id);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, value="/projects/{projectId}/images")
-	public void addImage(@RequestBody Image image, @PathVariable String projectId) {
-		Project project = projectService.getProject(projectId);
-		Image imageToSave = new Image(image.getId(), image.getCaption(), image.getUrl(), project); 
-		System.out.println(imageToSave.toString());
-		imageService.addImage(imageToSave);
-	}
-	
 	@RequestMapping(method=RequestMethod.PUT, value="/projects/{projectId}/images/{id}")
 	public void updateImage(@RequestBody Image image, @PathVariable String projectId, @PathVariable Integer id) {
 		Project project = projectService.getProject(projectId);

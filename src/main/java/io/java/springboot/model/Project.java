@@ -31,11 +31,11 @@ public class Project {
 			joinColumns = {@JoinColumn(name = "project_id", referencedColumnName = "id")},
 			inverseJoinColumns = {@JoinColumn(name = "technology_id", referencedColumnName = "name")}
 	)
-	@JsonIgnoreProperties("projects")
+	@JsonIgnoreProperties(value = {"projects"}, allowSetters = true)
 	private Set<Technology> technologies;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="project_id",nullable=false)
-	@JsonIgnoreProperties("project")
+	@JsonIgnoreProperties(value = {"project"}, allowSetters = true)
 	private Set<Image> images;
 
 	public Project() {
@@ -116,5 +116,9 @@ public class Project {
 
 	public void setImages(Set<Image> images) {
 		this.images = images;
+	}
+	
+	public void addImage(Image image) {
+		this.images.add(image);
 	}
 }
