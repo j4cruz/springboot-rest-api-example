@@ -25,7 +25,7 @@ public class Project {
 	private String description;
 	private String pageUrl;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH })
 	@JoinTable(
 			name="Project_Technologies",
 			joinColumns = {@JoinColumn(name = "project_id", referencedColumnName = "id")},

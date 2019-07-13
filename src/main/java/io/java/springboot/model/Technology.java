@@ -14,7 +14,7 @@ public class Technology {
 	
 	@Id
 	private String name;
-	@ManyToMany(mappedBy = "technologies", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy="technologies", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH })
 	@JsonBackReference
 	private Set<Project> projects;
 
