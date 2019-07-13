@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import io.java.springboot.dao.ApplicationUserRepository;
 import io.java.springboot.model.ApplicationUser;
-import io.java.springboot.repository.ApplicationUserRepository;
 
 import static java.util.Collections.emptyList;
 

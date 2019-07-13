@@ -1,4 +1,4 @@
-package io.java.springboot.repository;
+package io.java.springboot.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.java.springboot.dao.ApplicationUserRepository;
 import io.java.springboot.model.ApplicationUser;
-import io.java.springboot.repository.ApplicationUserRepository;
 
 @RestController
 @RequestMapping("/users")

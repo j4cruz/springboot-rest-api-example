@@ -1,4 +1,4 @@
-package io.java.springboot.security;
+package io.java.springboot.config;
 
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Configuration;
@@ -7,13 +7,13 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @PropertySource("classpath:application.properties")
-public class SecurityConstants implements EnvironmentAware {
+public class SecurityConfig implements EnvironmentAware {
 
 	static Environment environment;
 
 	@Override
 	public void setEnvironment(Environment environment) {
-		SecurityConstants.environment = environment;
+		SecurityConfig.environment = environment;
 	}
 
 	public static String getJWTSecret() {

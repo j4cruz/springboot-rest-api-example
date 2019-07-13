@@ -16,30 +16,30 @@ import io.java.springboot.service.TechnologyService;
 public class TechnologyController {
 	
 	@Autowired
-	private TechnologyService TechnologyService;
+	private TechnologyService technologyService;
 
 	@RequestMapping("/technologies")
 	public Set<Technology> getAllTechnologies() {
-		return TechnologyService.getAllTechnologies();
+		return technologyService.getAllTechnologies();
 	}
 	
 	@RequestMapping("/technologies/{id}")
 	public Technology getTechnology(@PathVariable String id) {
-		return TechnologyService.getTechnology(id);
+		return technologyService.getTechnology(id);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/technologies")
 	public void addTechnology(@RequestBody Technology Technology) {
-		TechnologyService.addTechnology(Technology);
+		technologyService.addTechnology(Technology);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, value="/technologies/{id}")
 	public void updateTechnology(@PathVariable String id, @RequestBody Technology Technology) {
-		TechnologyService.updateTechnology(Technology);
+		technologyService.updateTechnology(Technology);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/technologies/{id}")
 	public void deleteTechnology(@PathVariable String id) {
-		TechnologyService.deleteTechnology(id);
+		technologyService.deleteTechnology(id);
 	}
 }

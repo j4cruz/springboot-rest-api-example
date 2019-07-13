@@ -3,6 +3,7 @@ package io.java.springboot.security;
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import io.java.springboot.config.SecurityConfig;
 import io.java.springboot.model.ApplicationUser;
 
 import org.springframework.security.authentication.AuthenticationManager;
@@ -53,10 +54,10 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
 
-    	Long EXPIRATION_TIME = SecurityConstants.getJWTExpirationTime();
-    	String HEADER_STRING = SecurityConstants.getJWTHeaderString();
-    	String TOKEN_PREFIX = SecurityConstants.getJWTTokenPrefix();
-    	String SECRET = SecurityConstants.getJWTSecret();
+    	Long EXPIRATION_TIME = SecurityConfig.getJWTExpirationTime();
+    	String HEADER_STRING = SecurityConfig.getJWTHeaderString();
+    	String TOKEN_PREFIX = SecurityConfig.getJWTTokenPrefix();
+    	String SECRET = SecurityConfig.getJWTSecret();
     	
         String token = JWT.create()
                 .withSubject(((User) auth.getPrincipal()).getUsername())

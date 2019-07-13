@@ -3,6 +3,8 @@ package io.java.springboot.security;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
+import io.java.springboot.config.SecurityConfig;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,8 +26,8 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     protected void doFilterInternal(HttpServletRequest req,
                                     HttpServletResponse res,
                                     FilterChain chain) throws IOException, ServletException {
-    	String HEADER_STRING = SecurityConstants.getJWTHeaderString();
-    	String TOKEN_PREFIX = SecurityConstants.getJWTTokenPrefix();
+    	String HEADER_STRING = SecurityConfig.getJWTHeaderString();
+    	String TOKEN_PREFIX = SecurityConfig.getJWTTokenPrefix();
     	
     	String header = req.getHeader(HEADER_STRING);
 
@@ -41,9 +43,9 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     }
 
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
-    	String HEADER_STRING = SecurityConstants.getJWTHeaderString();
-    	String SECRET = SecurityConstants.getJWTSecret();
-    	String TOKEN_PREFIX = SecurityConstants.getJWTTokenPrefix();
+    	String HEADER_STRING = SecurityConfig.getJWTHeaderString();
+    	String SECRET = SecurityConfig.getJWTSecret();
+    	String TOKEN_PREFIX = SecurityConfig.getJWTTokenPrefix();
     	
     	String token = request.getHeader(HEADER_STRING);
         if (token != null) {

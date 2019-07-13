@@ -11,6 +11,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import io.java.springboot.config.SecurityConfig;
 import io.java.springboot.service.UserDetailsServiceImpl;
 
 import org.springframework.context.annotation.Bean;
@@ -27,7 +28,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-    	String SIGN_UP_URL = SecurityConstants.getJWTSignUpUrl();
+    	String SIGN_UP_URL = SecurityConfig.getJWTSignUpUrl();
     	
         	http.headers().frameOptions().sameOrigin()
         		.and().cors()
