@@ -1,73 +1,38 @@
 package io.java.springboot.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import io.java.springboot.model.Image;
 import io.java.springboot.model.Project;
-import io.java.springboot.model.Technology;
+import io.java.springboot.repository.ProjectRepository;
 
 @Service
 public class ProjectService {
-	private List<Project> projects;
+	@Autowired
+	private ProjectRepository projectRepository;
 
-	public ProjectService() {
-		String description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit "
-				+ "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-				+ "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "
-				+ "nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in "
-				+ "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla "
-				+ "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
-				+ "culpa qui officia deserunt mollit anim id.";
-
-		List<Technology> technologies = new ArrayList<Technology>();
-		technologies.add(new Technology("React"));
-		technologies.add(new Technology("Java"));
-		technologies.add(new Technology("SQL"));
-
-		List<Image> images = new ArrayList<Image>();
-		images.add(new Image("Screenshot 1", "https://via.placeholder.com/150"));
-		images.add(new Image("Screenshot 2", "https://via.placeholder.com/150"));
-
-		projects = new ArrayList<>(Arrays.asList(
-				new Project("perfect-timing", "Perfect Timing", "EP Collab with Metroboomin - 2019",
-						"React application built with passion.", description, "/projects/perfect-timing", technologies,
-						images),
-				new Project("call-me", "Call Me", "EP Collab with Metroboomin - 2019",
-						"React application built with passion.", description, "/projects/call-me", technologies,
-						images),
-				new Project("bad-habits", "Bad Habits", "EP Collab with Metroboomin - 2019",
-						"React application built with passion.", description, "/projects/bad-habits", technologies,
-						images)));
-
-	}
-
-	public List<Project> getAllProjects() {
+	public Set<Project> getAllProjects() {
+		Set<Project> projects = new HashSet<>();
+		projectRepository.findAll().forEach(projects::add);
 		return projects;
 	}
 
 	public Project getProject(String id) {
-		return projects.stream().filter(p -> p.getId().equals(id)).findFirst().get();
+		return projectRepository.findOne(id);
 	}
 
 	public void addProject(Project project) {
-		projects.add(project);
+		projectRepository.save(project);
 	}
 
-	public void updateProject(String id, Project project) {
-		for (int i = 0; i < projects.size(); i++) {
-			Project p = projects.get(i);
-			if (p.getId().equals(id)) {
-				projects.set(i, project);
-				return;
-			}
-		}
+	public void updateProject(Project project) {
+		projectRepository.save(project);
 	}
 
 	public void deleteProject(String id) {
-		projects.removeIf(p -> p.getId().equals(id));
+		projectRepository.delete(id);
 	}
 }

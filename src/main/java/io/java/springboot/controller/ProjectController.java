@@ -1,6 +1,6 @@
 package io.java.springboot.controller;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +19,7 @@ public class ProjectController {
 	private ProjectService projectService;
 
 	@RequestMapping("/projects")
-	public List<Project> getAllProjects() {
+	public Set<Project> getAllProjects() {
 		return projectService.getAllProjects();
 	}
 	
@@ -35,7 +35,7 @@ public class ProjectController {
 	
 	@RequestMapping(method=RequestMethod.PUT, value="/projects/{id}")
 	public void updateProject(@PathVariable String id, @RequestBody Project project) {
-		projectService.updateProject(id, project);
+		projectService.updateProject(project);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/projects/{id}")

@@ -1,24 +1,48 @@
 package io.java.springboot.model;
 
-import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity
 public class Project {
 
+	@Id
 	private String id;
 	private String name;
 	private String subtitle;
 	private String caption;
+	@Size(min = 1, max = 1000)
 	private String description;
 	private String pageUrl;
-	private List<Technology> technologies;
-	private List<Image> images;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(
+			name="Project_Technologies",
+			joinColumns = {@JoinColumn(name = "project_id", referencedColumnName = "id")},
+			inverseJoinColumns = {@JoinColumn(name = "technology_id", referencedColumnName = "name")}
+	)
+	@JsonIgnoreProperties("projects")
+	private Set<Technology> technologies;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="project_id",nullable=false)
+	@JsonIgnoreProperties("project")
+	private Set<Image> images;
 
 	public Project() {
 	}
 
 	public Project(String id, String name, String subtitle, String caption, String description, String pageUrl,
-			List<Technology> technologies, List<Image> images) {
+			Set<Technology> technologies, Set<Image> images) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -78,19 +102,19 @@ public class Project {
 		this.pageUrl = pageUrl;
 	}
 
-	public List<Technology> getTechnologies() {
+	public Set<Technology> getTechnologies() {
 		return technologies;
 	}
 
-	public void setTechnologies(List<Technology> technologies) {
+	public void setTechnologies(Set<Technology> technologies) {
 		this.technologies = technologies;
 	}
 
-	public List<Image> getImages() {
+	public Set<Image> getImages() {
 		return images;
 	}
 
-	public void setImages(List<Image> images) {
+	public void setImages(Set<Image> images) {
 		this.images = images;
 	}
 }
