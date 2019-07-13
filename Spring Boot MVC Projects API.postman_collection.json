@@ -6,213 +6,539 @@
 	},
 	"item": [
 		{
-			"name": "GET All Projects",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzU2NTJ9.uTKudGArK0KFXrybxClNmBce0R-tILjN8wp25Tuhb_A_-zfDYVNsmrjICL7D8ykoNCWiGch3RKC4Jgj-G5QuyQ",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8080/projects",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"projects"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Project by Id",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3Njk2MjR9.oKTc7kWuRITHCSN1I--k4yJjcMzq3pTWUMxnJSUY4WQNV27cZHcRHsxrasZrbBZk9xRvxDQ7NgL3z5Edhjk2NA",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8080/projects/take-care",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"projects",
-						"take-care"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST Create Project",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+			"name": "Projects CRUD",
+			"item": [
+				{
+					"name": "GET All Projects",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzU2NTJ9.uTKudGArK0KFXrybxClNmBce0R-tILjN8wp25Tuhb_A_-zfDYVNsmrjICL7D8ykoNCWiGch3RKC4Jgj-G5QuyQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"projects"
+							]
+						}
 					},
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3Njk2MjR9.oKTc7kWuRITHCSN1I--k4yJjcMzq3pTWUMxnJSUY4WQNV27cZHcRHsxrasZrbBZk9xRvxDQ7NgL3z5Edhjk2NA",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"id\": \"take-care\",\n    \"name\": \"Take Care\",\n    \"subtitle\": \"EP Collab with Metroboomin - 2019\",\n    \"caption\": \"React application built with passion.\",\n    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.\",\n    \"pageUrl\": \"/projects/wrong-page-url\",\n    \"technologies\": [\n        {\n            \"name\": \"React\"\n        },\n        {\n            \"name\": \"Java\"\n        },\n        {\n            \"name\": \"SQL\"\n        }\n    ],\n    \"images\": [\n        {\n            \"caption\": \"Screenshot 1\",\n            \"url\": \"https://via.placeholder.com/150\"\n        },\n        {\n            \"caption\": \"Screenshot 2\",\n            \"url\": \"https://via.placeholder.com/150\"\n        }\n    ]\n}"
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/projects",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"projects"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PUT Update Project by ID",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+				{
+					"name": "GET Project by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3Njk2MjR9.oKTc7kWuRITHCSN1I--k4yJjcMzq3pTWUMxnJSUY4WQNV27cZHcRHsxrasZrbBZk9xRvxDQ7NgL3z5Edhjk2NA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/projects/take-care",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"projects",
+								"take-care"
+							]
+						}
 					},
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3Njk2MjR9.oKTc7kWuRITHCSN1I--k4yJjcMzq3pTWUMxnJSUY4WQNV27cZHcRHsxrasZrbBZk9xRvxDQ7NgL3z5Edhjk2NA",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"id\": \"take-care\",\n    \"name\": \"Take Care\",\n    \"subtitle\": \"EP Collab with The Weeknd\",\n    \"caption\": \"React application built with passion.\",\n    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.\",\n    \"pageUrl\": \"/projects/take-care\",\n    \"technologies\": [\n        {\n            \"name\": \"React\"\n        },\n        {\n            \"name\": \"Java\"\n        },\n        {\n            \"name\": \"SQL\"\n        }\n    ],\n    \"images\": [\n        {\n            \"caption\": \"Screenshot 1\",\n            \"url\": \"https://via.placeholder.com/150\"\n        },\n        {\n            \"caption\": \"Screenshot 2\",\n            \"url\": \"https://via.placeholder.com/150\"\n        }\n    ]\n}"
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/projects/take-care",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"projects",
-						"take-care"
-					]
+				{
+					"name": "POST Create Project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNTYzMDQ0NTA0fQ.lDomVCLjQALb6sdpXwvr_X68lqvyFHF2cAlJEbcGrX52SPj2JGGabz_1ZU9uq0nwryQ6gdbk6O3O0fvW-hUh-w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"take-care\",\n    \"name\": \"Take Care\",\n    \"subtitle\": \"EP Collab with Metroboomin - 2019\",\n    \"caption\": \"React application built with passion.\",\n    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.\",\n    \"pageUrl\": \"/projects/wrong-page-url\",\n    \"technologies\": [\n        {\n            \"name\": \"React\"\n        },\n        {\n            \"name\": \"Java\"\n        },\n        {\n            \"name\": \"SQL\"\n        }\n    ],\n    \"images\": [\n        {\n            \"caption\": \"Screenshot 1\",\n            \"url\": \"https://via.placeholder.com/150\"\n        },\n        {\n            \"caption\": \"Screenshot 2\",\n            \"url\": \"https://via.placeholder.com/150\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update Project by ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNTYzMDQ0NTA0fQ.lDomVCLjQALb6sdpXwvr_X68lqvyFHF2cAlJEbcGrX52SPj2JGGabz_1ZU9uq0nwryQ6gdbk6O3O0fvW-hUh-w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"take-care\",\n    \"name\": \"Take Care\",\n    \"subtitle\": \"EP Collab with The Weeknd\",\n    \"caption\": \"React application built with passion.\",\n    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.\",\n    \"pageUrl\": \"/projects/take-care\",\n    \"technologies\": [\n        {\n            \"name\": \"React\"\n        },\n        {\n            \"name\": \"Java\"\n        },\n        {\n            \"name\": \"SQL\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/projects/take-care",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"projects",
+								"take-care"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Project by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzY0NDd9.vSzYh_12kGk4xLzNrKoWnz6CasQcZFy7cNt48z8HtJ_YPX9KQFEGQ8KYrJpWRcdsSS9wWz54AyZNj3uah-Hsew",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/projects/take-care",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"projects",
+								"take-care"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "DELETE Project by ID",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3Njk2MjR9.oKTc7kWuRITHCSN1I--k4yJjcMzq3pTWUMxnJSUY4WQNV27cZHcRHsxrasZrbBZk9xRvxDQ7NgL3z5Edhjk2NA",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8080/projects/take-care",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"projects",
-						"take-care"
-					]
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "POST User Sign up",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"test\",\n\t\"password\": \"test\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST User Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test\",\n    \"password\": \"test\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "POST User Sign up",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"username\": \"taz\",\n\t\"password\": \"taz\"\n}"
+			"name": "Technology CRUD",
+			"item": [
+				{
+					"name": "POST Create Technology",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzY0NDd9.vSzYh_12kGk4xLzNrKoWnz6CasQcZFy7cNt48z8HtJ_YPX9KQFEGQ8KYrJpWRcdsSS9wWz54AyZNj3uah-Hsew",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"NodeJS\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/technologies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"technologies"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/users/sign-up",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"sign-up"
-					]
+				{
+					"name": "PUT Update Technology by Id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzY0NDd9.vSzYh_12kGk4xLzNrKoWnz6CasQcZFy7cNt48z8HtJ_YPX9KQFEGQ8KYrJpWRcdsSS9wWz54AyZNj3uah-Hsew",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"React\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/technologies/React",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"technologies",
+								"React"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET All Technologies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzY0NDd9.vSzYh_12kGk4xLzNrKoWnz6CasQcZFy7cNt48z8HtJ_YPX9KQFEGQ8KYrJpWRcdsSS9wWz54AyZNj3uah-Hsew",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/technologies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"technologies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Technology by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzY0NDd9.vSzYh_12kGk4xLzNrKoWnz6CasQcZFy7cNt48z8HtJ_YPX9KQFEGQ8KYrJpWRcdsSS9wWz54AyZNj3uah-Hsew"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/technologies/NodeJS",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"technologies",
+								"NodeJS"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Technology by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzY0NDd9.vSzYh_12kGk4xLzNrKoWnz6CasQcZFy7cNt48z8HtJ_YPX9KQFEGQ8KYrJpWRcdsSS9wWz54AyZNj3uah-Hsew",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/technologies/Java",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"technologies",
+								"Java"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "POST User Login",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\": \"taz\",\n    \"password\": \"taz\"\n}\n"
+			"name": "Project Image CRUD",
+			"item": [
+				{
+					"name": "POST Create Project image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzY0NDd9.vSzYh_12kGk4xLzNrKoWnz6CasQcZFy7cNt48z8HtJ_YPX9KQFEGQ8KYrJpWRcdsSS9wWz54AyZNj3uah-Hsew",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"caption\": \"Screenshot 3\",\n    \"url\": \"https://via.placeholder.com/150\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/projects/take-care/images",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"projects",
+								"take-care",
+								"images"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"login"
-					]
+				{
+					"name": "POST Update Project Image by Id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzY0NDd9.vSzYh_12kGk4xLzNrKoWnz6CasQcZFy7cNt48z8HtJ_YPX9KQFEGQ8KYrJpWRcdsSS9wWz54AyZNj3uah-Hsew"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"caption\": \"Screenshot 1\",\n    \"url\": \"https://via.placeholder.com/150\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/projects/take-care/images/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"projects",
+								"take-care",
+								"images",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET All Images by Project",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzY0NDd9.vSzYh_12kGk4xLzNrKoWnz6CasQcZFy7cNt48z8HtJ_YPX9KQFEGQ8KYrJpWRcdsSS9wWz54AyZNj3uah-Hsew"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/projects/take-care/images",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"projects",
+								"take-care",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Image by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzY0NDd9.vSzYh_12kGk4xLzNrKoWnz6CasQcZFy7cNt48z8HtJ_YPX9KQFEGQ8KYrJpWRcdsSS9wWz54AyZNj3uah-Hsew",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/projects/take-care/images/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"projects",
+								"take-care",
+								"images",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Image by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXoiLCJleHAiOjE1NjM3NzY0NDd9.vSzYh_12kGk4xLzNrKoWnz6CasQcZFy7cNt48z8HtJ_YPX9KQFEGQ8KYrJpWRcdsSS9wWz54AyZNj3uah-Hsew",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/projects/take-care/images/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"projects",
+								"take-care",
+								"images",
+								"3"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
